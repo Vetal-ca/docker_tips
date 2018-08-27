@@ -5,7 +5,7 @@
 ```bash
 registry_url="https://user:password@some.repo.com"
 
-repos=$(curl --silent ${registry_url}/v2/_catalog) | jq --raw-output ".repositories"
+repos=$(curl --silent ${registry_url}/v2/_catalog | jq --raw-output ".repositories")
 
 for repo in $(echo "${repos}" | jq -r '.[]'); do
     # echo ${repo}
